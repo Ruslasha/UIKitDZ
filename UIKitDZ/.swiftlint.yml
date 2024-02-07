@@ -123,11 +123,11 @@ custom_rules:
     message: "var a: [Type] = []"
     severity: error
 
-#  custom_boolean_redundant_condition:
-#    name: "Optional chaining для Bool запрещен"
-#    regex: "(?? true)|(?? false)"
-#    message: "Используй == true или == false"
-#    severity: error
+  custom_boolean_redundant_condition:
+    name: "Optional chaining для Bool запрещен"
+    regex: "\\?\\? (true|false)"
+    message: "Используй == true или == false"
+    severity: error
 
   custom_type_inferred_context:
     name: "Лишнее указание типа"
