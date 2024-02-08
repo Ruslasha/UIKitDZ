@@ -5,17 +5,33 @@ import UIKit
 
 /// ViewController
 class ViewController: UIViewController {
+    // MARK: - Types
+
+    // MARK: - Constants
+
+    // MARK: - IBOutlets
+
+    // MARK: - Public Properties
+
     var label: UILabel!
     var labelReversedName: UILabel!
     var labelInputName: UILabel!
+    var labelInput: UILabel!
+
+    // MARK: - Private Properties
 
     private var phrases = ""
+
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         createLabel()
         createButtonStart()
         setViewSettings()
     }
+
+    // MARK: - Public Methods
 
     func setViewSettings() {
         view.backgroundColor = .white
@@ -39,6 +55,11 @@ class ViewController: UIViewController {
         labelInputName.numberOfLines = 0
         labelInputName.font = .systemFont(ofSize: 16, weight: .bold)
         view.addSubview(labelInputName)
+
+        labelInput = UILabel(frame: CGRect(x: 0, y: view.bounds.maxY - 600, width: view.frame.width, height: 50))
+        labelInput.textAlignment = .center
+        labelInput.numberOfLines = 0
+        view.addSubview(labelInput)
     }
 
     func createButtonStart() {
@@ -64,6 +85,7 @@ class ViewController: UIViewController {
         let okAction = UIAlertAction(title: "ОК", style: .default) { _ in
             if let inputText = alert.textFields?.first?.text {
                 let result = self.reverseString(inputText)
+                self.labelInput.text = inputText
                 self.label.text = result
             }
         }
@@ -74,4 +96,6 @@ class ViewController: UIViewController {
     func reverseString(_ input: String) -> String {
         String(input.reversed())
     }
+
+    // MARK: - Private Methods
 }
