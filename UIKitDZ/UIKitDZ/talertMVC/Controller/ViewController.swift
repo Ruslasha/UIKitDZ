@@ -6,6 +6,8 @@ import UIKit
 /// ViewController
 class ViewController: UIViewController {
     var label: UILabel!
+    var labelReversedName: UILabel!
+    var labelInputName: UILabel!
 
     private var phrases = ""
     override func viewDidLoad() {
@@ -20,15 +22,29 @@ class ViewController: UIViewController {
     }
 
     func createLabel() {
-        label = UILabel(frame: CGRect(x: 100, y: 300, width: 200, height: 50))
+        label = UILabel(frame: CGRect(x: 0, y: view.bounds.maxY - 400, width: view.frame.width, height: 50))
         label.textAlignment = .center
         view.addSubview(label)
+
+        labelReversedName = UILabel(frame: CGRect(x: 0, y: view.bounds.maxY - 450, width: view.frame.width, height: 50))
+        labelReversedName.textAlignment = .center
+        labelReversedName.text = "А вот что получится, если читать справа налево"
+        labelReversedName.numberOfLines = 0
+        labelReversedName.font = .systemFont(ofSize: 16, weight: .bold)
+        view.addSubview(labelReversedName)
+
+        labelInputName = UILabel(frame: CGRect(x: 0, y: view.bounds.maxY - 650, width: view.frame.width, height: 50))
+        labelInputName.textAlignment = .center
+        labelInputName.text = "Вы ввели слово"
+        labelInputName.numberOfLines = 0
+        labelInputName.font = .systemFont(ofSize: 16, weight: .bold)
+        view.addSubview(labelInputName)
     }
 
     func createButtonStart() {
-        let startButton = UIButton(type: .system)
+        let startButton = UIButton()
         startButton.setTitle("Начать", for: .normal)
-        startButton.frame = CGRect(x: 100, y: 200, width: 200, height: 50)
+        startButton.frame = CGRect(x: view.center.x - 100, y: view.bounds.maxY - 200, width: 200, height: 50)
         startButton.layer.cornerRadius = 10
         startButton.backgroundColor = UIColor.green
         startButton.setTitleColor(UIColor.white, for: .normal)
