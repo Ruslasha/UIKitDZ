@@ -13,6 +13,7 @@
 		4483DBAA2B7213D0004EC71F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4483DBA82B7213D0004EC71F /* Main.storyboard */; };
 		4483DBAC2B7213D1004EC71F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4483DBAB2B7213D1004EC71F /* Assets.xcassets */; };
 		4483DBAF2B7213D1004EC71F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4483DBAD2B7213D1004EC71F /* LaunchScreen.storyboard */; };
+		44C0591C2B7572AC00C28807 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C0591B2B7572AC00C28807 /* OrderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		4483DBAB2B7213D1004EC71F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4483DBAE2B7213D1004EC71F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4483DBB02B7213D1004EC71F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44C0591B2B7572AC00C28807 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				4483DBA22B7213D0004EC71F /* AppDelegate.swift */,
 				4483DBA42B7213D0004EC71F /* SceneDelegate.swift */,
 				4483DBA62B7213D0004EC71F /* ViewController.swift */,
+				44C0591B2B7572AC00C28807 /* OrderViewController.swift */,
 				4483DBA82B7213D0004EC71F /* Main.storyboard */,
 				4483DBAB2B7213D1004EC71F /* Assets.xcassets */,
 				4483DBAD2B7213D1004EC71F /* LaunchScreen.storyboard */,
@@ -183,6 +186,7 @@
 				4483DBA72B7213D0004EC71F /* ViewController.swift in Sources */,
 				4483DBA32B7213D0004EC71F /* AppDelegate.swift in Sources */,
 				4483DBA52B7213D0004EC71F /* SceneDelegate.swift in Sources */,
+				44C0591C2B7572AC00C28807 /* OrderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
