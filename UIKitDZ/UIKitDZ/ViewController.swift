@@ -4,11 +4,15 @@
 import UIKit
 
 /// ViewController
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
+    
+    // MARK: - IBOutlets
     @IBOutlet var login: UITextField!
     @IBOutlet var password: UITextField!
 
     @IBOutlet var enterButton: UIButton!
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         password.isSecureTextEntry = true
@@ -16,6 +20,7 @@ class ViewController: UIViewController {
         password.addTarget(self, action: #selector(textDidChange(_:)), for: .editingChanged)
     }
 
+    // MARK: - Private Methods
     @objc func textDidChange(_ textField: UITextField) {
         guard let loginText = login.text,
               let passwordText = password.text
