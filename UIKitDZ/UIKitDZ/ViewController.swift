@@ -3,11 +3,19 @@
 
 import UIKit
 
-/// ViewController
+/// Главный экран приложения
 final class ViewController: UIViewController {
     // MARK: - Private Properties
 
     private var resultNumber = 0.0
+    
+    private var nameLabel: UILabel {
+        let nameLabel = UILabel()
+        nameLabel.font = UIFont.systemFont(ofSize: 18)
+        nameLabel.textAlignment = .center
+        nameLabel.frame = CGRect(x: 0, y: 100, width: view.frame.width, height: 50)
+        return nameLabel
+    }
 
     // MARK: - Life Cycle
 
@@ -53,43 +61,21 @@ final class ViewController: UIViewController {
     }
 
     private func addGuessButton() {
-        let additionButton = UIButton()
-        additionButton.setTitle("Угадай число", for: .normal)
-        additionButton.backgroundColor = UIColor(red: 155 / 255, green: 127 / 255, blue: 181 / 255, alpha: 1)
-        additionButton.tintColor = .white
-        additionButton.layer.cornerRadius = 10
-        additionButton.layer.borderWidth = 3.0
-        additionButton.layer.borderColor = UIColor.purple.cgColor
-
-        additionButton.frame = CGRect(
+        let guessButton = UIButton()
+        guessButton.setTitle("Угадай число", for: .normal)
+        guessButton.backgroundColor = UIColor(red: 155 / 255, green: 127 / 255, blue: 181 / 255, alpha: 1)
+        guessButton.tintColor = .white
+        guessButton.layer.cornerRadius = 10
+        guessButton.layer.borderWidth = 3.0
+        guessButton.layer.borderColor = UIColor.purple.cgColor
+        guessButton.frame = CGRect(
             x: view.center.x - 150,
             y: view.center.y - 150,
             width: 150,
             height: 150
         )
-        additionButton.addTarget(self, action: #selector(guessButtonTapped), for: .touchUpInside)
-        view.addSubview(additionButton)
-    }
-
-    @objc func guessButtonTapped() {
-        let alertController = UIAlertController(
-            title: "Угадай число от 1 до 10",
-            message: "",
-            preferredStyle:
-            .alert
-        )
-        alertController.addTextField(configurationHandler: nil)
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            guard let firstText = alertController.textFields?[0].text
-            else {
-                return
-            }
-            self.checkNumber(Int(firstText) ?? 0)
-        }
-        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-        alertController.addAction(okAction)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
+        guessButton.addTarget(self, action: #selector(guessButtonTapped), for: .touchUpInside)
+        view.addSubview(guessButton)
     }
 
     private func checkNumber(_ number: Int) {
@@ -113,37 +99,6 @@ final class ViewController: UIViewController {
             resultAlertController.addAction(okAction)
             present(resultAlertController, animated: true, completion: nil)
         }
-    }
-
-    @objc func calculateButtonTapped() {
-        let alertController = UIAlertController(
-            title: "Введите ваши числа",
-            message: "",
-            preferredStyle:
-            .alert
-        )
-        let action = UIAlertAction(title: "Выбрать операцию", style: .default) { _ in
-            guard let firstText = alertController.textFields?[0].text,
-                  let secondText = alertController.textFields?[1].text
-            else {
-                return
-            }
-            self.selectOperationNumber(firstNumber: Double(firstText) ?? 0, secondNumber: Double(secondText) ?? 0)
-        }
-        alertController.addTextField(configurationHandler: nil)
-        alertController.addTextField(configurationHandler: nil)
-        guard let firstTextField = alertController.textFields?[0],
-              let secondTextField = alertController.textFields?[1]
-        else {
-            return
-        }
-        firstTextField.placeholder = "Число 1"
-        secondTextField.placeholder = "Число 2"
-        alertController.addAction(action)
-        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
-
-        present(alertController, animated: true, completion: nil)
     }
 
     private func selectOperationNumber(firstNumber: Double, secondNumber: Double) {
@@ -195,14 +150,6 @@ final class ViewController: UIViewController {
         present(resultAlertController, animated: true, completion: nil)
     }
 
-    var nameLabel: UILabel {
-        let nameLabel = UILabel()
-        nameLabel.font = UIFont.systemFont(ofSize: 18)
-        nameLabel.textAlignment = .center
-        nameLabel.frame = CGRect(x: 0, y: 100, width: view.frame.width, height: 50)
-        return nameLabel
-    }
-
     private func addWelcomeAlert() {
         let alertController = UIAlertController(
             title: "Пожалуйста, представьтесь",
@@ -227,6 +174,58 @@ final class ViewController: UIViewController {
         }
         alertController.addTextField(configurationHandler: nil)
         alertController.addAction(action)
+        present(alertController, animated: true, completion: nil)
+    }
+
+    @objc func guessButtonTapped() {
+        let alertController = UIAlertController(
+            title: "Угадай число от 1 до 10",
+            message: "",
+            preferredStyle:
+            .alert
+        )
+        alertController.addTextField(configurationHandler: nil)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            guard let firstText = alertController.textFields?[0].text
+            else {
+                return
+            }
+            self.checkNumber(Int(firstText) ?? 0)
+        }
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
+
+    @objc func calculateButtonTapped() {
+        let alertController = UIAlertController(
+            title: "Введите ваши числа",
+            message: "",
+            preferredStyle:
+            .alert
+        )
+        let action = UIAlertAction(title: "Выбрать операцию", style: .default) { _ in
+            guard let firstText = alertController.textFields?[0].text,
+                  let secondText = alertController.textFields?[1].text
+            else {
+                return
+            }
+            self.selectOperationNumber(firstNumber: Double(firstText) ?? 0, secondNumber: Double(secondText) ?? 0)
+        }
+        alertController.addTextField(configurationHandler: nil)
+        alertController.addTextField(configurationHandler: nil)
+        guard let firstTextField = alertController.textFields?[0],
+              let secondTextField = alertController.textFields?[1]
+        else {
+            return
+        }
+        firstTextField.placeholder = "Число 1"
+        secondTextField.placeholder = "Число 2"
+        alertController.addAction(action)
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+
         present(alertController, animated: true, completion: nil)
     }
 }
