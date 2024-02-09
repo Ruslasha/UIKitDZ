@@ -4,22 +4,34 @@
 import UIKit
 
 /// ViewController
-class ViewController: UIViewController {
-    var resultNumber = 0.0
+final class ViewController: UIViewController {
+
+    // MARK: - Private Properties
+
+    private var resultNumber = 0.0
+
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        addACalculateButton()
-        addGuessButton()
-        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "Background")
-        backgroundImage.contentMode = .scaleAspectFill
-        view.insertSubview(backgroundImage, at: 0)
+        setView()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         addWelcomeAlert()
+    }
+
+    // MARK: - Private Methods
+
+    private func setView() {
+        addACalculateButton()
+        addGuessButton()
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "Background")
+        backgroundImage.contentMode = .scaleAspectFill
+        view.backgroundColor = .white
+        view.insertSubview(backgroundImage, at: 0)
     }
 
     private func addACalculateButton() {
@@ -81,7 +93,7 @@ class ViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
 
-    func checkNumber(_ number: Int) {
+    private func checkNumber(_ number: Int) {
         let randomNumber = Int.random(in: 1 ... 10)
         if number == randomNumber {
             let resultAlertController = UIAlertController(
@@ -135,7 +147,7 @@ class ViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
 
-    func selectOperationNumber(firstNumber: Double, secondNumber: Double) {
+    private func selectOperationNumber(firstNumber: Double, secondNumber: Double) {
         let operationAlertController = UIAlertController(
             title: "Выберите операцию",
             message: nil,
@@ -171,7 +183,7 @@ class ViewController: UIViewController {
         present(operationAlertController, animated: true, completion: nil)
     }
 
-    func outResult(_ resultNumber: Double) {
+    private func outResult(_ resultNumber: Double) {
         let resultAlertController = UIAlertController(
             title: "Ваш результат",
             message: "\(resultNumber)",
