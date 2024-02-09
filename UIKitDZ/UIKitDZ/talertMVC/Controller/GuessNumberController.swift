@@ -1,10 +1,10 @@
-// ViewController.swift
+// GuessNumberController.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
-/// Controller
-final class ViewController: UIViewController {
+/// Контроллер главного экрана
+final class GuessNumberController: UIViewController {
     // MARK: - Private Properties
 
     private let guessNumberView = GuessNumberView()
@@ -31,7 +31,7 @@ final class ViewController: UIViewController {
             if let inputText = alert.textFields?.first?.text {
                 let result = self.reverseString(inputText)
                 self.guessNumberView.labelInput.text = inputText
-                self.guessNumberView.label.text = result
+                self.guessNumberView.labelReversed.text = result
             }
         }
         alert.addAction(okAction)

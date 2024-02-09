@@ -3,11 +3,11 @@
 
 import UIKit
 
-/// View
+/// Вью главного экрана
 final class GuessNumberView: UIView {
-    // MARK: - Public Properties
+    // MARK: - Constants
 
-    let label: UILabel = {
+    let labelReversed: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 812 - 400, width: 375, height: 50))
         label.textAlignment = .center
         return label
@@ -52,16 +52,22 @@ final class GuessNumberView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
-        addSubview(label)
-        addSubview(labelReversedName)
-        addSubview(labelInputName)
-        addSubview(labelInput)
-        addSubview(startButton)
+        setUI()
     }
 
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Private Methods
+
+    private func setUI() {
+        backgroundColor = .white
+        addSubview(labelReversed)
+        addSubview(labelReversedName)
+        addSubview(labelInputName)
+        addSubview(labelInput)
+        addSubview(startButton)
     }
 }
