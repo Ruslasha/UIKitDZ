@@ -3,14 +3,20 @@
 
 import UIKit
 
-/// OrderViewController
+/// Действия с экраном заказа
 class OrderViewController: UIViewController {
+    // MARK: - IBOutlets
+
     @IBOutlet var showOrderAlert: UIButton!
+
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         showOrderAlert.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
     }
+
+    // MARK: - Private Methods
 
     @objc func buttonPressed() {
         let alertController = UIAlertController(
