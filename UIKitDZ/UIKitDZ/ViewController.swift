@@ -5,7 +5,6 @@ import UIKit
 
 /// ViewController
 final class ViewController: UIViewController {
-
     // MARK: - Private Properties
 
     private var resultNumber = 0.0
