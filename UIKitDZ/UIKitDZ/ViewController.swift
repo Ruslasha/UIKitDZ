@@ -3,18 +3,18 @@
 
 import UIKit
 
-/// Главный экран приложения
+/// Стартовый экран приложения
 final class ViewController: UIViewController {
     // MARK: - Private Properties
 
     private var resultNumber = 0.0
-    
-    private var nameLabel: UILabel {
-        let nameLabel = UILabel()
-        nameLabel.font = UIFont.systemFont(ofSize: 18)
-        nameLabel.textAlignment = .center
-        nameLabel.frame = CGRect(x: 0, y: 100, width: view.frame.width, height: 50)
-        return nameLabel
+
+    private var userName: UILabel {
+        let userName = UILabel()
+        userName.font = UIFont.systemFont(ofSize: 18)
+        userName.textAlignment = .center
+        userName.frame = CGRect(x: 0, y: 100, width: view.frame.width, height: 50)
+        return userName
     }
 
     // MARK: - Life Cycle
