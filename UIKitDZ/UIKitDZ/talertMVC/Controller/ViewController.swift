@@ -3,81 +3,26 @@
 
 import UIKit
 
-/// ViewController
-class ViewController: UIViewController {
-    // MARK: - Types
-
-    // MARK: - Constants
-
-    // MARK: - IBOutlets
-
-    // MARK: - Public Properties
-
-    var label: UILabel!
-    var labelReversedName: UILabel!
-    var labelInputName: UILabel!
-    var labelInput: UILabel!
-
+/// Controller
+final class ViewController: UIViewController {
     // MARK: - Private Properties
 
-    private var phrases = ""
+    private let guessNumberView = GuessNumberView()
 
     // MARK: - Life Cycle
 
+    override func loadView() {
+        view = guessNumberView
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        createLabel()
-        createButtonStart()
-        setViewSettings()
+        guessNumberView.startButton.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
     }
 
-    // MARK: - Public Methods
+    // MARK: - Private Methods
 
-    func setViewSettings() {
-        view.backgroundColor = .white
-    }
-
-    func createLabel() {
-        label = UILabel(frame: CGRect(x: 0, y: view.bounds.maxY - 400, width: view.frame.width, height: 50))
-        label.textAlignment = .center
-        view.addSubview(label)
-
-        labelReversedName = UILabel(frame: CGRect(x: 0, y: view.bounds.maxY - 450, width: view.frame.width, height: 50))
-        labelReversedName.textAlignment = .center
-        labelReversedName.text = "А вот что получится, если читать справа налево"
-        labelReversedName.numberOfLines = 0
-        labelReversedName.font = .systemFont(ofSize: 16, weight: .bold)
-        view.addSubview(labelReversedName)
-
-        labelInputName = UILabel(frame: CGRect(x: 0, y: view.bounds.maxY - 650, width: view.frame.width, height: 50))
-        labelInputName.textAlignment = .center
-        labelInputName.text = "Вы ввели слово"
-        labelInputName.numberOfLines = 0
-        labelInputName.font = .systemFont(ofSize: 16, weight: .bold)
-        view.addSubview(labelInputName)
-
-        labelInput = UILabel(frame: CGRect(x: 0, y: view.bounds.maxY - 600, width: view.frame.width, height: 50))
-        labelInput.textAlignment = .center
-        labelInput.numberOfLines = 0
-        view.addSubview(labelInput)
-    }
-
-    func createButtonStart() {
-        let startButton = UIButton()
-        startButton.setTitle("Начать", for: .normal)
-        startButton.frame = CGRect(x: view.center.x - 100, y: view.bounds.maxY - 200, width: 200, height: 50)
-        startButton.layer.cornerRadius = 10
-        startButton.backgroundColor = UIColor.green
-        startButton.setTitleColor(UIColor.white, for: .normal)
-        startButton.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
-        view.addSubview(startButton)
-    }
-
-    @objc func startButtonTapped() {
-        showAlert()
-    }
-
-    func showAlert() {
+    private func showAlert() {
         let alert = UIAlertController(title: "Введите слово", message: nil, preferredStyle: .alert)
         alert.addTextField { textField in
             textField.placeholder = "Фраза"
@@ -85,17 +30,19 @@ class ViewController: UIViewController {
         let okAction = UIAlertAction(title: "ОК", style: .default) { _ in
             if let inputText = alert.textFields?.first?.text {
                 let result = self.reverseString(inputText)
-                self.labelInput.text = inputText
-                self.label.text = result
+                self.guessNumberView.labelInput.text = inputText
+                self.guessNumberView.label.text = result
             }
         }
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
     }
 
-    func reverseString(_ input: String) -> String {
+    private func reverseString(_ input: String) -> String {
         String(input.reversed())
     }
 
-    // MARK: - Private Methods
+    @objc func startButtonTapped() {
+        showAlert()
+    }
 }
