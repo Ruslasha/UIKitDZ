@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Контроллер главного экрана
+/// Контроллер стартового экрана
 final class GuessNumberController: UIViewController {
     // MARK: - Private Properties
 

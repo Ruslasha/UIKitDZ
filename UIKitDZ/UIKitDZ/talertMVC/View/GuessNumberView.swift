@@ -13,7 +13,7 @@ final class GuessNumberView: UIView {
         return label
     }()
 
-    let labelReversedName: UILabel = {
+    private let labelReversedName: UILabel = {
         let labelReversedName = UILabel(frame: CGRect(x: 0, y: 812 - 450, width: 375, height: 50))
         labelReversedName.textAlignment = .center
         labelReversedName.text = "А вот что получится, если читать справа налево"
@@ -22,7 +22,7 @@ final class GuessNumberView: UIView {
         return labelReversedName
     }()
 
-    let labelInputName: UILabel = {
+    private let labelInputName: UILabel = {
         let labelInputName = UILabel(frame: CGRect(x: 0, y: 812 - 650, width: 375, height: 50))
         labelInputName.textAlignment = .center
         labelInputName.text = "Вы ввели слово"
@@ -57,7 +57,8 @@ final class GuessNumberView: UIView {
 
     @available(*, unavailable)
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        setUI()
     }
 
     // MARK: - Private Methods
