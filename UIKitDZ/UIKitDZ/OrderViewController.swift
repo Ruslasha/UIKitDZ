@@ -3,8 +3,8 @@
 
 import UIKit
 
-/// Действия с экраном заказа
-class OrderViewController: UIViewController {
+/// Контроллер экрана заказа
+final class OrderViewController: UIViewController {
     // MARK: - IBOutlets
 
     @IBOutlet var showOrderAlert: UIButton!
@@ -18,7 +18,7 @@ class OrderViewController: UIViewController {
 
     // MARK: - Private Methods
 
-    @objc func buttonPressed() {
+    @objc private func buttonPressed() {
         let alertController = UIAlertController(
             title: "Выставить счет?",
             message: nil,
