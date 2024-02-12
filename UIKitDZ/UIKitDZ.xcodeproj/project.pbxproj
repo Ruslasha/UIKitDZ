@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4422C3E22B78C38500F5222B /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4422C3E12B78C38500F5222B /* UIColor+extension.swift */; };
 		4422C3E42B78CFCA00F5222B /* BirthdayReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4422C3E32B78CFCA00F5222B /* BirthdayReminderViewController.swift */; };
+		4422C3E62B78E57E00F5222B /* NewPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4422C3E52B78E57E00F5222B /* NewPersonViewController.swift */; };
 		4483DBA32B7213D0004EC71F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4483DBA22B7213D0004EC71F /* AppDelegate.swift */; };
 		4483DBA52B7213D0004EC71F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4483DBA42B7213D0004EC71F /* SceneDelegate.swift */; };
 		4483DBA72B7213D0004EC71F /* AuthorisationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4483DBA62B7213D0004EC71F /* AuthorisationViewController.swift */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		4422C3E12B78C38500F5222B /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		4422C3E32B78CFCA00F5222B /* BirthdayReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayReminderViewController.swift; sourceTree = "<group>"; };
+		4422C3E52B78E57E00F5222B /* NewPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPersonViewController.swift; sourceTree = "<group>"; };
 		4483DB9F2B7213D0004EC71F /* UIKitDZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitDZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4483DBA22B7213D0004EC71F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4483DBA42B7213D0004EC71F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				4483DBAD2B7213D1004EC71F /* LaunchScreen.storyboard */,
 				4483DBB02B7213D1004EC71F /* Info.plist */,
 				4422C3E12B78C38500F5222B /* UIColor+extension.swift */,
+				4422C3E52B78E57E00F5222B /* NewPersonViewController.swift */,
 			);
 			path = UIKitDZ;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4422C3E62B78E57E00F5222B /* NewPersonViewController.swift in Sources */,
 				4483DBA72B7213D0004EC71F /* AuthorisationViewController.swift in Sources */,
 				4483DBA32B7213D0004EC71F /* AppDelegate.swift in Sources */,
 				4483DBA52B7213D0004EC71F /* SceneDelegate.swift in Sources */,

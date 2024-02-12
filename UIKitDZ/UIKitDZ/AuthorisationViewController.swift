@@ -5,10 +5,6 @@ import UIKit
 
 /// Стартовый экран приложения
 class AuthorisationViewController: UIViewController {
-    // MARK: - Types
-
-    // MARK: - Constants
-
     // MARK: - Visual Components
 
     private let logoImageView: UIImageView = {
@@ -61,6 +57,13 @@ class AuthorisationViewController: UIViewController {
         return passwordLabel
     }()
 
+    private let faceIdLabel: UILabel = {
+        let faceIdLabel = UILabel(frame: CGRect(x: 86, y: 544, width: 150, height: 35))
+        faceIdLabel.text = "Use FaceID"
+        faceIdLabel.font = .boldSystemFont(ofSize: 16)
+        return faceIdLabel
+    }()
+
     private let emailTextField: UITextField = {
         let emailTextField = UITextField(frame: CGRect(x: 20, y: 347, width: 175, height: 17))
         emailTextField.placeholder = "Typing email"
@@ -72,6 +75,7 @@ class AuthorisationViewController: UIViewController {
         let passwordTextField = UITextField(frame: CGRect(x: 20, y: 422, width: 175, height: 17))
         passwordTextField.placeholder = "Typing password"
         passwordTextField.font = .systemFont(ofSize: 14)
+        passwordTextField.isSecureTextEntry = true
         return passwordTextField
     }()
 
@@ -90,27 +94,27 @@ class AuthorisationViewController: UIViewController {
     private let loginButton: UIButton = {
         let loginButton = UIButton(frame: CGRect(x: 20, y: 671, width: 335, height: 44))
         loginButton.layer.cornerRadius = 20
-        loginButton.backgroundColor = UIColor(red: 233, green: 70, blue: 94, alpha: 0.4)
+        loginButton.backgroundColor = UIColor(red: 233, green: 70, blue: 94, alpha: 1)
         loginButton.setTitle("Login", for: .normal)
         loginButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
         loginButton.addTarget(nil, action: #selector(loginButtonTouched), for: .touchUpInside)
+        loginButton.alpha = 0.4
+        loginButton.isEnabled = false
         return loginButton
     }()
 
-    // MARK: - Public Properties
-
-    // MARK: - Private Properties
-
-    // MARK: - Initializers
+    private let faceSwitch: UISwitch = {
+        let faceSwitch = UISwitch(frame: CGRect(x: 248, y: 544, width: 54, height: 35))
+        return faceSwitch
+    }()
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        setAuthorizationFields()
     }
-
-    // MARK: - Public Methods
 
     // MARK: - Private Methods
 
@@ -127,6 +131,23 @@ class AuthorisationViewController: UIViewController {
         view.addSubview(passwordTextField)
         view.addSubview(passwordImageView)
         view.addSubview(loginButton)
+        view.addSubview(faceIdLabel)
+        view.addSubview(faceSwitch)
+    }
+
+    private func setAuthorizationFields() {
+        emailTextField.addTarget(self, action: #selector(textDidChange(_:)), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange(_:)), for: .editingChanged)
+    }
+
+    @objc private func textDidChange(_ textField: UITextField) {
+        guard let loginText = emailTextField.text,
+              let passwordText = passwordTextField.text
+        else {
+            return
+        }
+        loginButton.isEnabled = !loginText.isEmpty && !passwordText.isEmpty
+        loginButton.alpha = loginButton.isEnabled ? 1.0 : 0.4
     }
 
     @objc private func loginButtonTouched() {
