@@ -12,15 +12,27 @@ class PlayerViewController: UIViewController {
 
     // MARK: - IBOutlets
 
+    @IBOutlet weak var titleMusic: UILabel!
+    @IBOutlet weak var LogoImageView: UIImageView!
     // MARK: - Visual Components
 
     // MARK: - Public Properties
+
+    var logoImage: UIImage?
+    var music: String?
 
     // MARK: - Private Properties
 
     // MARK: - Initializers
 
     // MARK: - Life Cycle
+
+    override func viewDidLoad() {
+            super.viewDidLoad()
+            
+        LogoImageView.image = image
+        titleMusic.text = labelText
+        }
 
     // MARK: - Public Methods
 
