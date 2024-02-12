@@ -14,6 +14,8 @@
 		4483DBAA2B7213D0004EC71F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4483DBA82B7213D0004EC71F /* Main.storyboard */; };
 		4483DBAC2B7213D1004EC71F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4483DBAB2B7213D1004EC71F /* Assets.xcassets */; };
 		4483DBAF2B7213D1004EC71F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4483DBAD2B7213D1004EC71F /* LaunchScreen.storyboard */; };
+		449F1A722B7A70DA00BC8112 /* Let it be.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 449F1A712B7A70DA00BC8112 /* Let it be.mp3 */; };
+		449F1A742B7A711D00BC8112 /* Yesterday.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 449F1A732B7A711D00BC8112 /* Yesterday.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		4483DBAB2B7213D1004EC71F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4483DBAE2B7213D1004EC71F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4483DBB02B7213D1004EC71F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		449F1A712B7A70DA00BC8112 /* Let it be.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Let it be.mp3"; path = "../../../../Downloads/Let it be.mp3"; sourceTree = "<group>"; };
+		449F1A732B7A711D00BC8112 /* Yesterday.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Yesterday.mp3; path = ../../../../Downloads/Yesterday.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 		4483DBA12B7213D0004EC71F /* UIKitDZ */ = {
 			isa = PBXGroup;
 			children = (
+				449F1A732B7A711D00BC8112 /* Yesterday.mp3 */,
+				449F1A712B7A70DA00BC8112 /* Let it be.mp3 */,
 				4483DBA22B7213D0004EC71F /* AppDelegate.swift */,
 				4483DBA42B7213D0004EC71F /* SceneDelegate.swift */,
 				4483DBA62B7213D0004EC71F /* ViewController.swift */,
@@ -131,7 +137,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4483DBAF2B7213D1004EC71F /* LaunchScreen.storyboard in Resources */,
+				449F1A742B7A711D00BC8112 /* Yesterday.mp3 in Resources */,
 				4483DBAC2B7213D1004EC71F /* Assets.xcassets in Resources */,
+				449F1A722B7A70DA00BC8112 /* Let it be.mp3 in Resources */,
 				4483DBAA2B7213D0004EC71F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
