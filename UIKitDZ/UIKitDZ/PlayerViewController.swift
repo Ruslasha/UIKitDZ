@@ -6,7 +6,7 @@ import Foundation
 import UIKit
 
 /// Экран плеера
-class PlayerViewController: UIViewController {
+final class PlayerViewController: UIViewController {
     // MARK: - IBOutlets
 
     @IBOutlet var nextTrack: UIButton!
@@ -37,7 +37,7 @@ class PlayerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setUI()
     }
 
@@ -102,6 +102,7 @@ class PlayerViewController: UIViewController {
 
         player.play()
     }
+
     private func setMusic(_ music: String) {
         do {
             if let audioPath = Bundle.main.path(forResource: music, ofType: "mp3") {

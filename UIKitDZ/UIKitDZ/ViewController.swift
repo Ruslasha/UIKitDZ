@@ -4,7 +4,7 @@
 import UIKit
 
 ///  Стартовый экран приложения
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     // MARK: - IBOutlets
 
     @IBOutlet var thridGroup: UILabel!
