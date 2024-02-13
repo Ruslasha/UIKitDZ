@@ -4,7 +4,7 @@
 import UIKit
 
 /// Стартовый экран приложения
-class AuthorisationViewController: UIViewController {
+final class AuthorisationViewController: UIViewController {
     // MARK: - Visual Components
 
     private let logoImageView: UIImageView = {

@@ -5,7 +5,7 @@ import Foundation
 import UIKit
 
 /// Экран добавления нового человека
-class NewPersonViewController: UIViewController {
+final class NewPersonViewController: UIViewController {
     // MARK: - Visual Components
 
     private let cancelButton: UIButton = {

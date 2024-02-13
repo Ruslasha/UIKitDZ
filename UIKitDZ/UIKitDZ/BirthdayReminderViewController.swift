@@ -4,7 +4,7 @@
 import UIKit
 
 /// Экран со списком дней рождений
-class BirthdayReminderViewController: UIViewController {
+final class BirthdayReminderViewController: UIViewController {
     // MARK: - Visual Components
 
     private let helenaImageView: UIImageView = {
