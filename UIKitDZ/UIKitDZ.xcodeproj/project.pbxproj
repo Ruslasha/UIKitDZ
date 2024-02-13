@@ -10,7 +10,7 @@
 		446F94182B7A09B90008AEC7 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446F94172B7A09B90008AEC7 /* PlayerViewController.swift */; };
 		4483DBA32B7213D0004EC71F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4483DBA22B7213D0004EC71F /* AppDelegate.swift */; };
 		4483DBA52B7213D0004EC71F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4483DBA42B7213D0004EC71F /* SceneDelegate.swift */; };
-		4483DBA72B7213D0004EC71F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4483DBA62B7213D0004EC71F /* ViewController.swift */; };
+		4483DBA72B7213D0004EC71F /* TracklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4483DBA62B7213D0004EC71F /* TracklistViewController.swift */; };
 		4483DBAA2B7213D0004EC71F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4483DBA82B7213D0004EC71F /* Main.storyboard */; };
 		4483DBAC2B7213D1004EC71F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4483DBAB2B7213D1004EC71F /* Assets.xcassets */; };
 		4483DBAF2B7213D1004EC71F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4483DBAD2B7213D1004EC71F /* LaunchScreen.storyboard */; };
@@ -23,7 +23,7 @@
 		4483DB9F2B7213D0004EC71F /* UIKitDZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitDZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4483DBA22B7213D0004EC71F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4483DBA42B7213D0004EC71F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4483DBA62B7213D0004EC71F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4483DBA62B7213D0004EC71F /* TracklistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracklistViewController.swift; sourceTree = "<group>"; };
 		4483DBA92B7213D0004EC71F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4483DBAB2B7213D1004EC71F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4483DBAE2B7213D1004EC71F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 				449F1A712B7A70DA00BC8112 /* Let it be.mp3 */,
 				4483DBA22B7213D0004EC71F /* AppDelegate.swift */,
 				4483DBA42B7213D0004EC71F /* SceneDelegate.swift */,
-				4483DBA62B7213D0004EC71F /* ViewController.swift */,
+				4483DBA62B7213D0004EC71F /* TracklistViewController.swift */,
 				4483DBA82B7213D0004EC71F /* Main.storyboard */,
 				4483DBAB2B7213D1004EC71F /* Assets.xcassets */,
 				4483DBAD2B7213D1004EC71F /* LaunchScreen.storyboard */,
@@ -191,7 +191,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4483DBA72B7213D0004EC71F /* ViewController.swift in Sources */,
+				4483DBA72B7213D0004EC71F /* TracklistViewController.swift in Sources */,
 				446F94182B7A09B90008AEC7 /* PlayerViewController.swift in Sources */,
 				4483DBA32B7213D0004EC71F /* AppDelegate.swift in Sources */,
 				4483DBA52B7213D0004EC71F /* SceneDelegate.swift in Sources */,

@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Tracklist View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="UIKitDZ" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TracklistViewController" customModule="UIKitDZ" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -121,7 +121,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
-                                    <action selector="tapFirstButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9ix-0T-IIQ"/>
+                                    <action selector="firstButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9ix-0T-IIQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVr-BE-EPL">
@@ -130,7 +130,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
-                                    <action selector="tapSecondButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kLt-pT-YFt"/>
+                                    <action selector="secondButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kLt-pT-YFt"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AeW-bM-l87">
@@ -139,7 +139,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
-                                    <action selector="tapThridButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mQf-LJ-feb"/>
+                                    <action selector="thridButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mQf-LJ-feb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -171,7 +171,7 @@
             <objects>
                 <viewController id="aeg-Vo-2o1" customClass="PlayerViewController" customModule="UIKitDZ" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ACM-89-YhV">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BackgroundPlayer" translatesAutoresizingMaskIntoConstraints="NO" id="8K7-Mh-qdo">
@@ -191,7 +191,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <action selector="changeSlider:" destination="aeg-Vo-2o1" eventType="valueChanged" id="RtT-IG-GRD"/>
+                                            <action selector="timeTrackChanged:" destination="aeg-Vo-2o1" eventType="valueChanged" id="RtT-IG-GRD"/>
                                         </connections>
                                     </slider>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stop" translatesAutoresizingMaskIntoConstraints="NO" id="Nai-ZU-VNM">
@@ -204,7 +204,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
-                                            <action selector="tapPlayStopButton:" destination="aeg-Vo-2o1" eventType="touchUpInside" id="wDH-SS-qqf"/>
+                                            <action selector="playStopButtonTapped:" destination="aeg-Vo-2o1" eventType="touchUpInside" id="wDH-SS-qqf"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="last" translatesAutoresizingMaskIntoConstraints="NO" id="sl4-xo-tpH">
@@ -217,8 +217,8 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
-                                            <action selector="previousTrack:" destination="aeg-Vo-2o1" eventType="touchUpInside" id="g2M-ja-q06"/>
-                                            <action selector="tapPlayStopButton:" destination="aeg-Vo-2o1" eventType="touchUpInside" id="kUg-ZN-mNJ"/>
+                                            <action selector="playStopButtonTapped:" destination="aeg-Vo-2o1" eventType="touchUpInside" id="kUg-ZN-mNJ"/>
+                                            <action selector="previousTrackButtopTapped:" destination="aeg-Vo-2o1" eventType="touchUpInside" id="g2M-ja-q06"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="next" translatesAutoresizingMaskIntoConstraints="NO" id="5KM-0w-dmR">
@@ -231,8 +231,8 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
-                                            <action selector="nextTrack:" destination="aeg-Vo-2o1" eventType="touchUpInside" id="7VH-rZ-bu5"/>
-                                            <action selector="tapPlayStopButton:" destination="aeg-Vo-2o1" eventType="touchUpInside" id="RIe-ub-ap9"/>
+                                            <action selector="nextTrackButtonTapped:" destination="aeg-Vo-2o1" eventType="touchUpInside" id="7VH-rZ-bu5"/>
+                                            <action selector="playStopButtonTapped:" destination="aeg-Vo-2o1" eventType="touchUpInside" id="RIe-ub-ap9"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -264,7 +264,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
-                                    <action selector="tapBackButton:" destination="aeg-Vo-2o1" eventType="touchUpInside" id="7Nk-vH-WnB"/>
+                                    <action selector="backButtonTapped:" destination="aeg-Vo-2o1" eventType="touchUpInside" id="7Nk-vH-WnB"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="WQG-Bw-zuJ">
@@ -275,7 +275,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.transform.rotation.z" value="-1.570795"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="changeVolumeSlider:" destination="aeg-Vo-2o1" eventType="valueChanged" id="qdq-4m-meO"/>
+                                    <action selector="volumeSliderChanged:" destination="aeg-Vo-2o1" eventType="valueChanged" id="qdq-4m-meO"/>
                                 </connections>
                             </slider>
                         </subviews>
@@ -284,13 +284,13 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="jDA-I6-9Xh" id="itg-8a-P5u"/>
-                        <outlet property="groupMusic" destination="B9K-Cx-H3F" id="4xU-6J-Pm8"/>
+                        <outlet property="groupTrackLabel" destination="B9K-Cx-H3F" id="4xU-6J-Pm8"/>
                         <outlet property="logoImageView" destination="10i-bi-osR" id="t6c-Tn-DTu"/>
-                        <outlet property="nextTrack" destination="rwY-vI-a3S" id="OPV-Nn-UGn"/>
+                        <outlet property="nextTrackButton" destination="rwY-vI-a3S" id="OPV-Nn-UGn"/>
                         <outlet property="playStopImageView" destination="Nai-ZU-VNM" id="3CH-CA-K5y"/>
-                        <outlet property="previousTrack" destination="iqc-Xp-cek" id="JDq-61-JJz"/>
-                        <outlet property="sliderMusic" destination="dLO-c5-xfY" id="pop-92-q3F"/>
-                        <outlet property="titleMusic" destination="cwr-fw-ujz" id="QuZ-Wf-AFh"/>
+                        <outlet property="previousTrackButton" destination="iqc-Xp-cek" id="JDq-61-JJz"/>
+                        <outlet property="titleTrackLabel" destination="cwr-fw-ujz" id="QuZ-Wf-AFh"/>
+                        <outlet property="trackTimeSlider" destination="dLO-c5-xfY" id="pop-92-q3F"/>
                         <outlet property="volumeSlider" destination="WQG-Bw-zuJ" id="kQE-6K-FdI"/>
                     </connections>
                 </viewController>

@@ -2,22 +2,21 @@
 // Copyright © RoadMap. All rights reserved.
 
 import AVFoundation
-import Foundation
 import UIKit
 
 /// Экран плеера
 final class PlayerViewController: UIViewController {
     // MARK: - IBOutlets
 
-    @IBOutlet var nextTrack: UIButton!
-    @IBOutlet var previousTrack: UIButton!
-    @IBOutlet var volumeSlider: UISlider!
-    @IBOutlet var backButton: UIButton!
-    @IBOutlet var sliderMusic: UISlider!
-    @IBOutlet var playStopImageView: UIImageView!
-    @IBOutlet var titleMusic: UILabel!
-    @IBOutlet var groupMusic: UILabel!
-    @IBOutlet var logoImageView: UIImageView!
+    @IBOutlet private var nextTrackButton: UIButton!
+    @IBOutlet private var previousTrackButton: UIButton!
+    @IBOutlet private var volumeSlider: UISlider!
+    @IBOutlet private var backButton: UIButton!
+    @IBOutlet private var trackTimeSlider: UISlider!
+    @IBOutlet private var playStopImageView: UIImageView!
+    @IBOutlet private var titleTrackLabel: UILabel!
+    @IBOutlet private var groupTrackLabel: UILabel!
+    @IBOutlet private var logoImageView: UIImageView!
 
     // MARK: - Public Properties
 
@@ -43,19 +42,19 @@ final class PlayerViewController: UIViewController {
 
     // MARK: - IBAction
 
-    @IBAction func changeSlider(_ sender: UISlider) {
+    @IBAction private func timeTrackChanged(_ sender: UISlider) {
         player.currentTime = TimeInterval(sender.value)
     }
 
-    @IBAction func changeVolumeSlider(_ sender: Any) {
+    @IBAction private func volumeSliderChanged(_ sender: Any) {
         player.volume = volumeSlider.value
     }
 
-    @IBAction func tapBackButton(_ sender: Any) {
+    @IBAction private func backButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func tapPlayStopButton(_ sender: Any) {
+    @IBAction private func playStopButtonTapped(_ sender: Any) {
         if isMusicPlayed == true {
             player.stop()
             isMusicPlayed = false
@@ -67,19 +66,19 @@ final class PlayerViewController: UIViewController {
         }
     }
 
-    @IBAction func nextTrack(_ sender: Any) {
+    @IBAction private func nextTrackButtonTapped(_ sender: Any) {
         currentTrackIndex += 1
         if currentTrackIndex >= tracks.count {
             currentTrackIndex = 0
         }
         let nextTrack = tracks[currentTrackIndex]
         logoImageView.image = UIImage(named: logos[currentTrackIndex])
-        titleMusic.text = tracks[currentTrackIndex]
-        groupMusic.text = "The Beatles"
+        titleTrackLabel.text = tracks[currentTrackIndex]
+        groupTrackLabel.text = "The Beatles"
         setMusic(nextTrack)
     }
 
-    @IBAction func previousTrack(_ sender: Any) {
+    @IBAction private func previousTrackButtopTapped(_ sender: Any) {
         currentTrackIndex -= 1
         if currentTrackIndex < 0 {
             currentTrackIndex = tracks.count - 1
@@ -95,8 +94,8 @@ final class PlayerViewController: UIViewController {
         backButton.setImage(systemImage, for: .normal)
 
         logoImageView.image = logoImage
-        titleMusic.text = music
-        groupMusic.text = group
+        titleTrackLabel.text = music
+        groupTrackLabel.text = group
 
         setMusic(music ?? "")
 
@@ -107,7 +106,7 @@ final class PlayerViewController: UIViewController {
         do {
             if let audioPath = Bundle.main.path(forResource: music, ofType: "mp3") {
                 try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath))
-                sliderMusic.maximumValue = Float(player.duration)
+                trackTimeSlider.maximumValue = Float(player.duration)
             }
         } catch {
             print("errror")
