@@ -5,10 +5,6 @@ import UIKit
 
 ///  Стартовый экран приложения
 class ViewController: UIViewController {
-    // MARK: - Types
-
-    // MARK: - Constants
-
     // MARK: - IBOutlets
 
     @IBOutlet var thridGroup: UILabel!
@@ -23,20 +19,6 @@ class ViewController: UIViewController {
     @IBOutlet var thridMusicImageView: UIImageView!
     @IBOutlet var secondMusicImageView: UIImageView!
     @IBOutlet var firstMusicImageView: UIImageView!
-
-    // MARK: - Visual Components
-
-    // MARK: - Public Properties
-
-    // MARK: - Private Properties
-
-    // MARK: - Initializers
-
-    // MARK: - Life Cycle
-
-//        override func viewDidLoad() {
-//            super.viewDidLoad()
-//        }
 
     // MARK: - Public Methods
 
@@ -77,6 +59,4 @@ class ViewController: UIViewController {
             sender: (thridMusicImageView.image, thridTitle.text, thridGroup.text)
         )
     }
-
-    // MARK: - Private Methods
 }

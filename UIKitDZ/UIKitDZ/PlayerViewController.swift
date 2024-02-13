@@ -7,10 +7,6 @@ import UIKit
 
 /// Экран плеера
 class PlayerViewController: UIViewController {
-    // MARK: - Types
-
-    // MARK: - Constants
-
     // MARK: - IBOutlets
 
     @IBOutlet var nextTrack: UIButton!
@@ -22,8 +18,6 @@ class PlayerViewController: UIViewController {
     @IBOutlet var titleMusic: UILabel!
     @IBOutlet var groupMusic: UILabel!
     @IBOutlet var logoImageView: UIImageView!
-
-    // MARK: - Visual Components
 
     // MARK: - Public Properties
 
@@ -39,36 +33,12 @@ class PlayerViewController: UIViewController {
     private let logos = ["Image1", "Image2"]
     private var currentTrackIndex = 0
 
-    // MARK: - Initializers
-
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let systemImage = UIImage(systemName: "xmark")
-        backButton.setImage(systemImage, for: .normal)
-
-        logoImageView.image = logoImage
-        titleMusic.text = music
-        groupMusic.text = group
-
-        setMusic(music ?? "")
-
-        player.play()
-    }
-
-    // MARK: - Public Methods
-
-    func setMusic(_ music: String) {
-        do {
-            if let audioPath = Bundle.main.path(forResource: music, ofType: "mp3") {
-                try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath))
-                sliderMusic.maximumValue = Float(player.duration)
-            }
-        } catch {
-            print("errror")
-        }
+        
+        setUI()
     }
 
     // MARK: - IBAction
@@ -119,4 +89,27 @@ class PlayerViewController: UIViewController {
     }
 
     // MARK: - Private Methods
+
+    private func setUI() {
+        let systemImage = UIImage(systemName: "xmark")
+        backButton.setImage(systemImage, for: .normal)
+
+        logoImageView.image = logoImage
+        titleMusic.text = music
+        groupMusic.text = group
+
+        setMusic(music ?? "")
+
+        player.play()
+    }
+    private func setMusic(_ music: String) {
+        do {
+            if let audioPath = Bundle.main.path(forResource: music, ofType: "mp3") {
+                try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath))
+                sliderMusic.maximumValue = Float(player.duration)
+            }
+        } catch {
+            print("errror")
+        }
+    }
 }
