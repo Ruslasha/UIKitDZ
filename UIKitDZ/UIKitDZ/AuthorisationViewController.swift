@@ -29,7 +29,7 @@ final class AuthorisationViewController: UIViewController {
         titleLabel.font = .boldSystemFont(ofSize: 18)
         titleLabel.numberOfLines = 2
         titleLabel.textAlignment = .center
-        titleLabel.textColor = UIColor(red: 90, green: 67, blue: 148, alpha: 1.0)
+        titleLabel.textColor = .appPurple
         return titleLabel
     }()
 
@@ -37,7 +37,7 @@ final class AuthorisationViewController: UIViewController {
         let signLabel = UILabel(frame: CGRect(x: 20, y: 266, width: 175, height: 31))
         signLabel.text = "Sign in"
         signLabel.font = .boldSystemFont(ofSize: 26)
-        signLabel.textColor = UIColor(red: 233, green: 70, blue: 94, alpha: 1.0)
+        signLabel.textColor = .appLightRed
         return signLabel
     }()
 
@@ -68,6 +68,7 @@ final class AuthorisationViewController: UIViewController {
         let emailTextField = UITextField(frame: CGRect(x: 20, y: 347, width: 175, height: 17))
         emailTextField.placeholder = "Typing email"
         emailTextField.font = .systemFont(ofSize: 14)
+        emailTextField.addTarget(nil, action: #selector(textDidChange(_:)), for: .editingChanged)
         return emailTextField
     }()
 
@@ -76,6 +77,7 @@ final class AuthorisationViewController: UIViewController {
         passwordTextField.placeholder = "Typing password"
         passwordTextField.font = .systemFont(ofSize: 14)
         passwordTextField.isSecureTextEntry = true
+        passwordTextField.addTarget(nil, action: #selector(textDidChange(_:)), for: .editingChanged)
         return passwordTextField
     }()
 
@@ -103,9 +105,9 @@ final class AuthorisationViewController: UIViewController {
         return loginButton
     }()
 
-    private let faceSwitch: UISwitch = {
-        let faceSwitch = UISwitch(frame: CGRect(x: 248, y: 544, width: 54, height: 35))
-        return faceSwitch
+    private let faceIDSwitch: UISwitch = {
+        let faceIDSwitch = UISwitch(frame: CGRect(x: 248, y: 544, width: 54, height: 35))
+        return faceIDSwitch
     }()
 
     // MARK: - Life Cycle
@@ -113,31 +115,27 @@ final class AuthorisationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        setAuthorizationFields()
     }
 
     // MARK: - Private Methods
 
     private func setUI() {
         view.backgroundColor = .white
-        view.addSubview(logoImageView)
-        view.addSubview(signLabel)
-        view.addSubview(titleLabel)
-        view.addSubview(emailLabel)
-        view.addSubview(passwordLabel)
-        view.addSubview(emailTextField)
-        view.addSubview(lineEmailView)
-        view.addSubview(linePasswordView)
-        view.addSubview(passwordTextField)
-        view.addSubview(passwordImageView)
-        view.addSubview(loginButton)
-        view.addSubview(faceIdLabel)
-        view.addSubview(faceSwitch)
-    }
-
-    private func setAuthorizationFields() {
-        emailTextField.addTarget(self, action: #selector(textDidChange(_:)), for: .editingChanged)
-        passwordTextField.addTarget(self, action: #selector(textDidChange(_:)), for: .editingChanged)
+        [
+            signLabel,
+            logoImageView,
+            titleLabel,
+            emailLabel,
+            passwordLabel,
+            emailTextField,
+            lineEmailView,
+            linePasswordView,
+            passwordTextField,
+            passwordImageView,
+            loginButton,
+            faceIdLabel,
+            faceIDSwitch,
+        ].forEach { view.addSubview($0) }
     }
 
     @objc private func textDidChange(_ textField: UITextField) {

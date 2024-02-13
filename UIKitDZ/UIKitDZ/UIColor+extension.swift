@@ -1,7 +1,6 @@
 // UIColor+extension.swift
 // Copyright © RoadMap. All rights reserved.
 
-import Foundation
 import UIKit
 
 /// Расширение UIColor для инициации по RGB

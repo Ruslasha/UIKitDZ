@@ -1,7 +1,6 @@
 // NewPersonViewController.swift
 // Copyright © RoadMap. All rights reserved.
 
-import Foundation
 import UIKit
 
 /// Экран добавления нового человека
@@ -46,7 +45,7 @@ final class NewPersonViewController: UIViewController {
         return label
     }()
 
-    private let lineNameView: UIView = {
+    private let dividerNameView: UIView = {
         let lineView = UIView(frame: CGRect(x: 20, y: 293, width: 335, height: 1))
         lineView.backgroundColor = UIColor(red: 208, green: 214, blue: 220, alpha: 1.0)
         return lineView
@@ -173,25 +172,27 @@ final class NewPersonViewController: UIViewController {
 
     private func setUI() {
         view.backgroundColor = .white
-        view.addSubview(cancelButton)
-        view.addSubview(addButton)
-        view.addSubview(selectPhotoImageView)
-        view.addSubview(changePhotoButton)
-        view.addSubview(nameLabel)
-        view.addSubview(birthdayLabel)
-        view.addSubview(ageLabel)
-        view.addSubview(genderLabel)
-        view.addSubview(telegramLabel)
-        view.addSubview(lineAgeView)
-        view.addSubview(lineNameView)
-        view.addSubview(lineGenderView)
-        view.addSubview(lineBirthdayView)
-        view.addSubview(lineTelegramView)
-        view.addSubview(nameTextField)
-        view.addSubview(birthdayTextField)
-        view.addSubview(ageTextField)
-        view.addSubview(genderTextField)
-        view.addSubview(telegramTextField)
+        [
+            cancelButton,
+            addButton,
+            selectPhotoImageView,
+            changePhotoButton,
+            nameLabel,
+            birthdayLabel,
+            ageLabel,
+            genderLabel,
+            telegramLabel,
+            lineAgeView,
+            dividerNameView,
+            lineGenderView,
+            lineBirthdayView,
+            lineTelegramView,
+            nameTextField,
+            birthdayTextField,
+            ageTextField,
+            genderTextField,
+            telegramTextField,
+        ].forEach { view.addSubview($0) }
         birthdayTextField.inputView = birthdayDatePickerView
         agePickerView.dataSource = self
         agePickerView.delegate = self
@@ -199,7 +200,7 @@ final class NewPersonViewController: UIViewController {
         genderPickerView.delegate = self
     }
 
-    @objc private func textFieldTapped() {
+    private func showAlert() {
         let alertController = UIAlertController(title: "Please enter Telegram", message: nil, preferredStyle: .alert)
 
         alertController.addTextField { textField in
@@ -213,6 +214,10 @@ final class NewPersonViewController: UIViewController {
         }
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
+    }
+
+    @objc private func textFieldTapped() {
+        showAlert()
     }
 
     @objc private func cancelButtonTapped() {
@@ -236,8 +241,8 @@ extension NewPersonViewController: UITextFieldDelegate {
     }
 }
 
-/// Расширение делегатов UIPickerViewDelegate и UIPickerViewDataSource для NewPersonViewController
-extension NewPersonViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+/// Расширение делегата UIPickerViewDelegate для NewPersonViewController
+extension NewPersonViewController: UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
     }
@@ -251,7 +256,10 @@ extension NewPersonViewController: UIPickerViewDelegate, UIPickerViewDataSource 
             return 0
         }
     }
+}
 
+/// Расширение делегата UIPickerViewDataSource для NewPersonViewController
+extension NewPersonViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == agePickerView {
             return "\(row + 1)"
