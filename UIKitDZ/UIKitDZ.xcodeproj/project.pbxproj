@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		441C29432B85227700C54677 /* NotificationPictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441C29422B85227700C54677 /* NotificationPictureCell.swift */; };
+		441C29452B8536B600C54677 /* NotificationButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441C29442B8536B600C54677 /* NotificationButtonCell.swift */; };
 		447C94EA2B83B64D001DCAA8 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447C94E92B83B64D001DCAA8 /* Source.swift */; };
 		447C94EC2B83B8D0001DCAA8 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447C94EB2B83B8D0001DCAA8 /* PostCell.swift */; };
 		447C94EE2B83EBEF001DCAA8 /* StoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447C94ED2B83EBEF001DCAA8 /* StoryCell.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		441C29422B85227700C54677 /* NotificationPictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPictureCell.swift; sourceTree = "<group>"; };
+		441C29442B8536B600C54677 /* NotificationButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationButtonCell.swift; sourceTree = "<group>"; };
 		447C94E92B83B64D001DCAA8 /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 		447C94EB2B83B8D0001DCAA8 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		447C94ED2B83EBEF001DCAA8 /* StoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCell.swift; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 				447C94F12B84FC39001DCAA8 /* LinkTabBarController.swift */,
 				447C94F32B84FCD6001DCAA8 /* NotificationViewController.swift */,
 				447C94F52B84FD1F001DCAA8 /* ProfileViewController.swift */,
+				441C29422B85227700C54677 /* NotificationPictureCell.swift */,
+				441C29442B8536B600C54677 /* NotificationButtonCell.swift */,
 			);
 			path = UIKitDZ;
 			sourceTree = "<group>";
@@ -207,10 +213,12 @@
 				4483DBA72B7213D0004EC71F /* MainPageViewController.swift in Sources */,
 				447C94F22B84FC39001DCAA8 /* LinkTabBarController.swift in Sources */,
 				447C94F02B84E8C7001DCAA8 /* RecomendationCell.swift in Sources */,
+				441C29452B8536B600C54677 /* NotificationButtonCell.swift in Sources */,
 				447C94F42B84FCD6001DCAA8 /* NotificationViewController.swift in Sources */,
 				4483DBA32B7213D0004EC71F /* AppDelegate.swift in Sources */,
 				4483DBA52B7213D0004EC71F /* SceneDelegate.swift in Sources */,
 				447C94EE2B83EBEF001DCAA8 /* StoryCell.swift in Sources */,
+				441C29432B85227700C54677 /* NotificationPictureCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,3 +10,10 @@ struct Post {
     let picture: UIImage
     let timeText: String
 }
+
+/// ds
+struct NotificationLink {
+    let text: String
+    let avatar: UIImage
+    let picture: UIImage
+}

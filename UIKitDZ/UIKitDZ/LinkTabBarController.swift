@@ -33,7 +33,7 @@ class LinkTabBarController: UITabBarController {
     func setupTabBar() {
         let mainPageNavigationController = UINavigationController(rootViewController: mainPageViewController)
         mainPageNavigationController.tabBarItem = mainPageTabBarItem
-        let notificationNavigationController =  NotificationViewController()
+        let notificationNavigationController = NotificationViewController()
         notificationNavigationController.tabBarItem = notificationTabBarItem
         let profileNavigationController = UINavigationController(rootViewController: profileViewController)
         profileNavigationController.tabBarItem = profileTabBarItem
