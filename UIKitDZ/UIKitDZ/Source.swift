@@ -7,7 +7,7 @@ import UIKit
 struct Post {
     let nickname: String
     let photo: UIImage
-    let picture: UIImage
+    let pictures: [UIImage]
     let timeText: String
 }
 

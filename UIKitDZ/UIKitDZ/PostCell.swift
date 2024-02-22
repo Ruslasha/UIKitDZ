@@ -3,9 +3,8 @@
 
 import UIKit
 
-/// PostCell
+/// Ячейка таблицы с постом
 class PostCell: UITableViewCell {
-    // MARK: - Types
 
     // MARK: - Constants
 
@@ -56,13 +55,6 @@ class PostCell: UITableViewCell {
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-    }()
-
-    private let pictureImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: Constants.naturePicture)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
     }()
 
     private let likesLabel: UILabel = {
@@ -144,6 +136,25 @@ class PostCell: UITableViewCell {
         return label
     }()
 
+    private let imagePageControl: UIPageControl = {
+        let pageControl = UIPageControl()
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.currentPage = 0
+        pageControl.currentPageIndicatorTintColor = .black
+        pageControl.pageIndicatorTintColor = .lightGray
+        pageControl.addTarget(nil, action: #selector(pageControlDidChange), for: .valueChanged)
+        return pageControl
+    }()
+
+    private let imageScrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+//        scrollView.isScrollEnabled = true
+//        scrollView.isUserInteractionEnabled = true
+//        scrollView.showsHorizontalScrollIndicator = true
+        return scrollView
+    }()
+
     // MARK: - Public Properties
 
     // MARK: - Private Properties
@@ -181,32 +192,41 @@ class PostCell: UITableViewCell {
         turNicknameLabel.widthAnchor.constraint(equalToConstant: 107).isActive = true
         turNicknameLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
 
-        contentView.addSubview(pictureImageView)
-        pictureImageView.topAnchor.constraint(equalTo: turNicknameLabel.bottomAnchor, constant: 10).isActive = true
-        pictureImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
-        pictureImageView.widthAnchor.constraint(equalToConstant: 375).isActive = true
-        pictureImageView.heightAnchor.constraint(equalToConstant: 237).isActive = true
+        contentView.addSubview(imageScrollView)
+        imageScrollView.topAnchor.constraint(equalTo: turNicknameLabel.bottomAnchor, constant: 10).isActive = true
+        imageScrollView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
+        imageScrollView.widthAnchor.constraint(equalToConstant: 375).isActive = true
+        imageScrollView.heightAnchor.constraint(equalToConstant: 237).isActive = true
+//        contentView.addSubview(pictureImageView)
+//        pictureImageView.topAnchor.constraint(equalTo: turNicknameLabel.bottomAnchor, constant: 10).isActive = true
+//        pictureImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
+//        pictureImageView.widthAnchor.constraint(equalToConstant: 375).isActive = true
+//        pictureImageView.heightAnchor.constraint(equalToConstant: 237).isActive = true
+//        imagePageControl.translatesAutoresizingMaskIntoConstraints = false
+
+//        imagePageControl.widthAnchor.constraint(equalToConstant: 375).isActive = true
+//        imagePageControl.heightAnchor.constraint(equalToConstant: 37).isActive = true
 
         contentView.addSubview(heartImageView)
-        heartImageView.topAnchor.constraint(equalTo: pictureImageView.bottomAnchor, constant: 8).isActive = true
+        heartImageView.topAnchor.constraint(equalTo: imageScrollView.bottomAnchor, constant: 8).isActive = true
         heartImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
         heartImageView.widthAnchor.constraint(equalToConstant: 24).isActive = true
         heartImageView.heightAnchor.constraint(equalToConstant: 24).isActive = true
 
         contentView.addSubview(commentImageView)
-        commentImageView.topAnchor.constraint(equalTo: pictureImageView.bottomAnchor, constant: 8).isActive = true
+        commentImageView.topAnchor.constraint(equalTo: imageScrollView.bottomAnchor, constant: 8).isActive = true
         commentImageView.leftAnchor.constraint(equalTo: heartImageView.rightAnchor, constant: 8).isActive = true
         commentImageView.widthAnchor.constraint(equalToConstant: 24).isActive = true
         commentImageView.heightAnchor.constraint(equalToConstant: 24).isActive = true
 
         contentView.addSubview(exportImageView)
-        exportImageView.topAnchor.constraint(equalTo: pictureImageView.bottomAnchor, constant: 10).isActive = true
+        exportImageView.topAnchor.constraint(equalTo: imageScrollView.bottomAnchor, constant: 10).isActive = true
         exportImageView.leftAnchor.constraint(equalTo: commentImageView.rightAnchor, constant: 8).isActive = true
         exportImageView.widthAnchor.constraint(equalToConstant: 19).isActive = true
         exportImageView.heightAnchor.constraint(equalToConstant: 19).isActive = true
 
         contentView.addSubview(saveImageView)
-        saveImageView.topAnchor.constraint(equalTo: pictureImageView.bottomAnchor, constant: 8).isActive = true
+        saveImageView.topAnchor.constraint(equalTo: imageScrollView.bottomAnchor, constant: 8).isActive = true
         saveImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -9).isActive = true
         saveImageView.widthAnchor.constraint(equalToConstant: 18).isActive = true
         saveImageView.heightAnchor.constraint(equalToConstant: 24).isActive = true
@@ -239,14 +259,34 @@ class PostCell: UITableViewCell {
         timeLabel.topAnchor.constraint(equalTo: commentLabel.bottomAnchor, constant: 7).isActive = true
         timeLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12).isActive = true
         timeLabel.widthAnchor.constraint(equalToConstant: 361).isActive = true
-
         timeLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
 
     func configure(post: Post) {
         turNicknameLabel.text = post.nickname
         turPhotoImageView.image = post.photo
-        pictureImageView.image = post.picture
         timeLabel.text = post.timeText
+        imagePageControl.numberOfPages = post.pictures.count
+
+        if post.pictures.count < 2 {
+            imagePageControl.isHidden = true
+        }
+        var xPosition = 0
+        for image in post.pictures {
+            let pictureImageView = UIImageView()
+            pictureImageView.image = image
+            pictureImageView.frame = CGRect(x: xPosition, y: 0, width: Int(UIScreen.main.bounds.width), height: 237)
+            imageScrollView.addSubview(pictureImageView)
+            xPosition += Int(UIScreen.main.bounds.width)
+            imageScrollView.contentSize = CGSize(width: xPosition, height: 237)
+            contentView.addSubview(imagePageControl)
+            imagePageControl.topAnchor.constraint(equalTo: imageScrollView.bottomAnchor, constant: 10).isActive = true
+            imagePageControl.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        }
+    }
+
+    @objc func pageControlDidChange(_ sender: UIPageControl) {
+        let offsetX = UIScreen.main.bounds.width * CGFloat(imagePageControl.currentPage)
+        imageScrollView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: true)
     }
 }

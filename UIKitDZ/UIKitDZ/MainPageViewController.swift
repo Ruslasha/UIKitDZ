@@ -3,9 +3,8 @@
 
 import UIKit
 
-/// MainPageViewController
+/// Стартовый экран приложения, лента
 class MainPageViewController: UIViewController {
-    // MARK: - Types
 
     // MARK: - Constants
 
@@ -35,12 +34,6 @@ class MainPageViewController: UIViewController {
     }
 
     let tableView: UITableView = .init()
-
-    // MARK: - IBOutlets
-
-    // MARK: - Visual Components
-
-    // MARK: - Public Properties
 
     // MARK: - Private Properties
 
@@ -76,10 +69,11 @@ class MainPageViewController: UIViewController {
         let turPictureImage = UIImage(named: Constants.naturePicture)
 
         if let turPhoto = turPhotoImage, let turPicture = turPictureImage {
+            let firstPostImages = [turPicture, turPicture, turPicture]
             let post1 = Post(
                 nickname: Constants.turNickname,
                 photo: turPhoto,
-                picture: turPicture,
+                pictures: firstPostImages,
                 timeText: Constants.tenMinutesText
             )
             posts.append(post1)
