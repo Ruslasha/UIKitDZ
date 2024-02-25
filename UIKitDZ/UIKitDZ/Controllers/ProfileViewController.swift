@@ -28,6 +28,7 @@ final class ProfileViewController: UIViewController {
         static let rmLink = "ruslan_rmLink"
         static let plusImage = "plusImage"
         static let listImage = "listImage"
+        static let linkSpaceX = "https://www.spacex.com"
         static let verdanaBold18 = UIFont(name: "Verdana-Bold", size: 18)
         static let verdanaBold16 = UIFont(name: "Verdana-Bold", size: 16)
         static let verdanaBold26 = UIFont(name: "Verdana-Bold", size: 26)
@@ -152,6 +153,8 @@ final class ProfileViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
+
 extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         3
@@ -192,7 +195,7 @@ extension ProfileViewController: UITableViewDataSource {
 
 extension ProfileViewController: TableViewCellDelegate {
     func didTapButton(in cell: InformationCell) {
-        guard let url = URL(string: "https://www.spacex.com") else { return }
+        guard let url = URL(string: Constants.linkSpaceX) else { return }
         let webView = WKWebView(frame: UIScreen.main.bounds)
         webView.load(URLRequest(url: url))
 

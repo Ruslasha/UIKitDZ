@@ -4,12 +4,14 @@
 import UIKit
 import WebKit
 
+/// Протокол для делегата TableViewCell
 protocol TableViewCellDelegate: AnyObject {
+    /// Обработка нажатия на кнопку
     func didTapButton(in cell: InformationCell)
 }
 
 /// Ячейка с информацией профиля
-class InformationCell: UITableViewCell {
+final class InformationCell: UITableViewCell {
     // MARK: - Constants
 
     enum Constants {
@@ -181,73 +183,13 @@ class InformationCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Life Cycle
-
-    // MARK: - Public Methods
-
-    // MARK: - IBAction
-
     // MARK: - Private Methods
 
     @objc private func openWebsite() {
         delegate?.didTapButton(in: self)
-
-//        guard let url = URL(string: "https://www.spacex.com") else { return }
-//        let webView = WKWebView(frame: UIScreen.main.bounds)
-//        webView.load(URLRequest(url: url))
-//
-//        let viewController = UIViewController()
-//        viewController.view = webView
-//
-//        present(viewController, animated: true, completion: nil)
     }
 
-    private func setupCell() {
-        contentView.addSubview(myPhotoImageView)
-        myPhotoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12).isActive = true
-        myPhotoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15).isActive = true
-        myPhotoImageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        myPhotoImageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
-
-        contentView.addSubview(myFioLabel)
-        myFioLabel.topAnchor.constraint(equalTo: myPhotoImageView.bottomAnchor, constant: 9).isActive = true
-        myFioLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15).isActive = true
-        myFioLabel.widthAnchor.constraint(equalToConstant: 170).isActive = true
-        myFioLabel.heightAnchor.constraint(equalToConstant: 17).isActive = true
-
-        contentView.addSubview(myJobLabel)
-        myJobLabel.topAnchor.constraint(equalTo: myFioLabel.bottomAnchor, constant: 11).isActive = true
-        myJobLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15).isActive = true
-        myJobLabel.widthAnchor.constraint(equalToConstant: 298).isActive = true
-        myJobLabel.heightAnchor.constraint(equalToConstant: 17).isActive = true
-
-        contentView.addSubview(webLink)
-        webLink.topAnchor.constraint(equalTo: myJobLabel.bottomAnchor, constant: 6).isActive = true
-        webLink.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 19).isActive = true
-        webLink.widthAnchor.constraint(equalToConstant: 298).isActive = true
-        webLink.heightAnchor.constraint(equalToConstant: 17).isActive = true
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openWebsite))
-        webLink.addGestureRecognizer(tapGesture)
-
-        contentView.addSubview(changeButton)
-        changeButton.topAnchor.constraint(equalTo: webLink.bottomAnchor, constant: 15).isActive = true
-        changeButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
-        changeButton.widthAnchor.constraint(equalToConstant: 155).isActive = true
-        changeButton.heightAnchor.constraint(equalToConstant: 27).isActive = true
-        changeButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
-
-        contentView.addSubview(shareButton)
-        shareButton.topAnchor.constraint(equalTo: webLink.bottomAnchor, constant: 15).isActive = true
-        shareButton.leadingAnchor.constraint(equalTo: changeButton.trailingAnchor, constant: 5).isActive = true
-        shareButton.widthAnchor.constraint(equalToConstant: 155).isActive = true
-        shareButton.heightAnchor.constraint(equalToConstant: 27).isActive = true
-
-        contentView.addSubview(plusButton)
-        plusButton.topAnchor.constraint(equalTo: webLink.bottomAnchor, constant: 15).isActive = true
-        plusButton.leadingAnchor.constraint(equalTo: shareButton.trailingAnchor, constant: 5).isActive = true
-        plusButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        plusButton.heightAnchor.constraint(equalToConstant: 27).isActive = true
-
+    private func setLabels() {
         contentView.addSubview(publicationNumberLabel)
         publicationNumberLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 22).isActive = true
         publicationNumberLabel.leadingAnchor.constraint(
@@ -308,5 +250,57 @@ class InformationCell: UITableViewCell {
         ).isActive = true
         mySubscribeTextLabel.widthAnchor.constraint(equalToConstant: 70).isActive = true
         mySubscribeTextLabel.heightAnchor.constraint(equalToConstant: 12).isActive = true
+    }
+
+    private func setButtons() {
+        contentView.addSubview(changeButton)
+        changeButton.topAnchor.constraint(equalTo: webLink.bottomAnchor, constant: 15).isActive = true
+        changeButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
+        changeButton.widthAnchor.constraint(equalToConstant: 155).isActive = true
+        changeButton.heightAnchor.constraint(equalToConstant: 27).isActive = true
+        changeButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
+
+        contentView.addSubview(shareButton)
+        shareButton.topAnchor.constraint(equalTo: webLink.bottomAnchor, constant: 15).isActive = true
+        shareButton.leadingAnchor.constraint(equalTo: changeButton.trailingAnchor, constant: 5).isActive = true
+        shareButton.widthAnchor.constraint(equalToConstant: 155).isActive = true
+        shareButton.heightAnchor.constraint(equalToConstant: 27).isActive = true
+
+        contentView.addSubview(plusButton)
+        plusButton.topAnchor.constraint(equalTo: webLink.bottomAnchor, constant: 15).isActive = true
+        plusButton.leadingAnchor.constraint(equalTo: shareButton.trailingAnchor, constant: 5).isActive = true
+        plusButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        plusButton.heightAnchor.constraint(equalToConstant: 27).isActive = true
+    }
+
+    private func setupCell() {
+        contentView.addSubview(myPhotoImageView)
+        myPhotoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12).isActive = true
+        myPhotoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15).isActive = true
+        myPhotoImageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        myPhotoImageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
+
+        contentView.addSubview(myFioLabel)
+        myFioLabel.topAnchor.constraint(equalTo: myPhotoImageView.bottomAnchor, constant: 9).isActive = true
+        myFioLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15).isActive = true
+        myFioLabel.widthAnchor.constraint(equalToConstant: 170).isActive = true
+        myFioLabel.heightAnchor.constraint(equalToConstant: 17).isActive = true
+
+        contentView.addSubview(myJobLabel)
+        myJobLabel.topAnchor.constraint(equalTo: myFioLabel.bottomAnchor, constant: 11).isActive = true
+        myJobLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15).isActive = true
+        myJobLabel.widthAnchor.constraint(equalToConstant: 298).isActive = true
+        myJobLabel.heightAnchor.constraint(equalToConstant: 17).isActive = true
+
+        contentView.addSubview(webLink)
+        webLink.topAnchor.constraint(equalTo: myJobLabel.bottomAnchor, constant: 6).isActive = true
+        webLink.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 19).isActive = true
+        webLink.widthAnchor.constraint(equalToConstant: 298).isActive = true
+        webLink.heightAnchor.constraint(equalToConstant: 17).isActive = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openWebsite))
+        webLink.addGestureRecognizer(tapGesture)
+
+        setButtons()
+        setLabels()
     }
 }

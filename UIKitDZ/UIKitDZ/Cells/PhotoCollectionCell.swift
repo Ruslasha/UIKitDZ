@@ -4,18 +4,16 @@
 import UIKit
 
 /// Ячейка таблицы с коллекцией фотографий
-class PhotoCollectionCell: UITableViewCell {
-    // MARK: - Types
-
+final class PhotoCollectionCell: UITableViewCell {
     // MARK: - Constants
 
-    // MARK: - IBOutlets
+    enum Constants {
+        static let photoCell = "PhotoCell"
+    }
 
     // MARK: - Visual Components
 
     private var photoCollectionView: UICollectionView!
-
-    // MARK: - Public Properties
 
     // MARK: - Private Properties
 
@@ -33,12 +31,6 @@ class PhotoCollectionCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Life Cycle
-
-    // MARK: - Public Methods
-
-    // MARK: - IBAction
-
     // MARK: - Private Methods
 
     private func setupCollectionView() {
@@ -51,7 +43,7 @@ class PhotoCollectionCell: UITableViewCell {
         photoCollectionView.widthAnchor.constraint(equalToConstant: 375).isActive = true
         photoCollectionView.heightAnchor.constraint(equalToConstant: 375).isActive = true
         photoCollectionView.dataSource = self
-        photoCollectionView.register(PhotoCell.self, forCellWithReuseIdentifier: "PhotoCell")
+        photoCollectionView.register(PhotoCell.self, forCellWithReuseIdentifier: Constants.photoCell)
     }
 
     private func setupFlowLayout() -> UICollectionViewFlowLayout {
@@ -63,6 +55,8 @@ class PhotoCollectionCell: UITableViewCell {
     }
 }
 
+// MARK: - UICollectionViewDataSource
+
 extension PhotoCollectionCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         photos.count
@@ -73,7 +67,7 @@ extension PhotoCollectionCell: UICollectionViewDataSource {
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: "PhotoCell",
+            withReuseIdentifier: Constants.photoCell,
             for: indexPath
         ) as?
             PhotoCell else { return UICollectionViewCell() }

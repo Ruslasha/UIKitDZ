@@ -5,12 +5,6 @@ import UIKit
 
 /// Ячейка фото
 class PhotoCell: UICollectionViewCell {
-    // MARK: - Types
-
-    // MARK: - Constants
-
-    // MARK: - IBOutlets
-
     // MARK: - Visual Components
 
     var photoImageView: UIImageView = {
@@ -19,10 +13,6 @@ class PhotoCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-
-    // MARK: - Public Properties
-
-    // MARK: - Private Properties
 
     // MARK: - Initializers
 
@@ -35,12 +25,6 @@ class PhotoCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    // MARK: - Life Cycle
-
-    // MARK: - Public Methods
-
-    // MARK: - IBAction
 
     // MARK: - Private Methods
 
