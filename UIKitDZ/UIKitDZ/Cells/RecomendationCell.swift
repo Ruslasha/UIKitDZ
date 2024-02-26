@@ -164,9 +164,9 @@ final class RecomendationCell: UITableViewCell {
     }()
 
     private let recomendationTitleView: UIView = {
-        let scrollView = UIView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        return scrollView
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
 
     // MARK: - Initializers

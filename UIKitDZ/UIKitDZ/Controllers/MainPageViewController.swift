@@ -135,6 +135,8 @@ final class MainPageViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
+
 extension MainPageViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         postsList.count
